@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Stand-in for SSML 1.1: .NET's XSD 1.0 engine cannot compile the official ssmlv1p1-core.xsd.
+     QTI references these elements; each accepts any content without validating it. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3.org/2001/10/synthesis" elementFormDefault="qualified">
+  <xs:complexType name="lax" mixed="true"><xs:sequence><xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/></xs:sequence><xs:anyAttribute processContents="lax"/></xs:complexType>
+  <xs:element name="audio" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="break" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="emphasis" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="mark" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="p" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="phoneme" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="prosody" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="s" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="say-as" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="speak" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="sub" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+  <xs:element name="voice" type="ssml:lax" xmlns:ssml="http://www.w3.org/2001/10/synthesis"/>
+</xs:schema>

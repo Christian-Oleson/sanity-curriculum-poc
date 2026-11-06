@@ -9,13 +9,24 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "dev": "sanity dev",
-    "start": "sanity start"
+    "start": "sanity start",
+    "queries": "sanity exec scripts/queries.ts --with-user-token",
+    "seed": "node seed/build-seed.mjs && sanity dataset import seed/seed.ndjson production --replace",
+    "web": "npm --prefix web run dev",
+    "audit": "sanity exec scripts/translation-audit.ts --with-user-token",
+    "catalog": "node seed/generate-catalog.mjs && sanity dataset import seed/catalog.ndjson production --replace",
+    "catalog:remove": "sanity exec scripts/remove-catalog.ts --with-user-token",
+    "watch:impact": "sanity exec scripts/impact-watcher.ts --with-user-token",
+    "validate:qti": "pwsh -NoProfile -File scripts/validate-qti.ps1",
+    "items": "node seed/items.mjs && sanity dataset import seed/items.ndjson production --replace"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/assist": "^6.2.6",
     "@sanity/vision": "^6.22.0",
+    "katex": "^0.19.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sanity": "^6.22.0",
@@ -23,6 +34,8 @@
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^7",
+    "@types/katex": "^0.16.8",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.2.14",
     "eslint": "^10.8.1",
     "prettier": "^3.5",
